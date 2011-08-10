@@ -18,10 +18,12 @@ module Minizip
       if File.exists?(zip_name)
         Dir.mkdir(directory) if directory && !File.exists?(directory)
 
-        if directory
-          system "unzip #{zip_name} -d #{directory}"
-        else
-          system "unzip #{zip_name}"
+        if USING_OSX
+          if directory
+            system "unzip #{zip_name} -d #{directory}"
+          else
+            system "unzip #{zip_name}"
+          end
         end
       else
         puts "#{zip_name} doesn't exist in #{Dir.pwd}"
