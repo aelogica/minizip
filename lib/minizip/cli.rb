@@ -7,5 +7,11 @@ module Minizip
     def dir(zip_name, dir_name)
       Minizip::Zip.zip_dir(zip_name, dir_name)
     end
+
+    desc "extract", "extract zip_file_name directory_to_extract"
+    def extract(zip_name, dir_name=nil)
+      Minizip::Zip.extract(zip_name, dir_name)
+    end
+
   end
 end

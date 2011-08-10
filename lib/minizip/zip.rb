@@ -13,5 +13,19 @@ module Minizip
         puts "#{directory} doesn't exist in #{Dir.pwd}"
       end
     end
+
+    def self.extract(zip_name, directory=nil)
+      if File.exists?(zip_name)
+        Dir.mkdir(directory) if directory && !File.exists?(directory)
+
+        if directory
+          system "unzip #{zip_name} -d #{directory}"
+        else
+          system "unzip #{zip_name}"
+        end
+      else
+        puts "#{zip_name} doesn't exist in #{Dir.pwd}"
+      end
+    end
   end
 end
