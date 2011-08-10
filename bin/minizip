@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'minizip/cli'
+Minizip::CLI.start
+
+exit 0

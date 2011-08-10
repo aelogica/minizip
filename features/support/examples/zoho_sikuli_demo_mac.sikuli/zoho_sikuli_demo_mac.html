@@ -1,0 +1,101 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }  
+         
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>dummy.sikuli</h2> <a href="dummy.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+App.open(<span class="str">"Firefox"</span>)
+<span class="skw">wait</span>(<img src="MozillaFiref-1.png" />, <span class="dig">3</span>)
+<span class="skw">click</span>(<img src="1312364035428.png" />)
+<span class="skw">type</span>(<span class="str">"crm.zoho.com\n"</span>)
+<span class="skw">wait</span>(<img src="SIGNIN.png" />,<span class="dig">5</span>)
+<span class="skw">click</span>(<img src="1308784583378.png" />)
+<span class="skw">wait</span>(<span class="dig">5</span>)
+<span class="skw">click</span>(Pattern(<img src="CUsernameIIE.png" />).similar(<span class="dig">0.48</span>))
+<span class="skw">type</span>(<span class="str">"a"</span>, KEY_CTRL)
+<span class="skw">type</span>(<span class="str">"joeklienwatir@gmail.com"</span>)
+<span class="skw">type</span>(Key.TAB)
+<span class="skw">type</span>(<span class="str">"watir001"</span>)
+<span class="skw">click</span>(Pattern(<img src="1308784882528.png" />).similar(<span class="dig">0.40</span>))
+<span class="skw">wait</span>(Pattern(<img src="TrotherEditi.png" />).similar(<span class="dig">0.57</span>),<span class="dig">10</span>)
+<span class="skw">wait</span> (<span class="dig">3</span>)
+<span class="skw">dragDrop</span>(Pattern(<img src="HLBXTodaysLe.png" />).similar(<span class="dig">0.95</span>), Pattern(<img src="Welcomejoekl-2.png" />).similar(<span class="dig">0.66</span>))
+
+<span class="skw">wait</span>(<span class="dig">2</span>)
+m=<span class="skw">find</span>(Pattern(<img src="TrotherEditi.png" />).similar(<span class="dig">0.47</span>))
+<span class="kw">print</span> m
+<span class="skw">dragDrop</span>(Pattern(<img src="OpenTasks-2.png" />).similar(<span class="dig">0.94</span>),Pattern(<img src="Welcomejoekl-3.png" />).similar(<span class="dig">0.68</span>))
+
+m=<span class="skw">find</span>(Pattern(<img src="TrotherEditi.png" />).similar(<span class="dig">0.52</span>))
+<span class="kw">print</span> m
+<span class="skw">click</span>(<img src="SignOutLjoek.png" />)
+<span class="skw">click</span>(<img src="1312362029369.png" />)
+</pre>
+</body>
+</html>
