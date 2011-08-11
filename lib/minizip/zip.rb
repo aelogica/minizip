@@ -3,6 +3,14 @@ module Minizip
   USING_OSX = RUBY_PLATFORM =~ /darwin/
 
   class Zip
+    def self.zip_files(zip_name, *files)
+      if USING_OSX
+        system "zip #{zip_name} #{files.join(' ')}"
+      elsif USING_WINDOWS
+        system "7z a #{zip_name} #{files.join(' ')}"
+      end
+    end
+
     def self.zip_dir(zip_name, directory)
       if File.exists?(directory)
         if USING_OSX
