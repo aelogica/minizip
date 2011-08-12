@@ -40,7 +40,7 @@ module Minizip
           end
         elsif USING_WINDOWS
           if directory
-            system "7za e #{zip_name} -o#{directory}"
+            system "7za x #{zip_name} -o#{directory}"
           else
             system "7za x #{zip_name}"
           end
