@@ -7,7 +7,9 @@ module Minizip
       if USING_OSX
         system "zip #{zip_name} #{files.join(' ')}"
       elsif USING_WINDOWS
-        system "7z a #{zip_name} #{files.join(' ')}"
+        system "7za a #{zip_name} #{files.join(' ')}"
+      else
+        raise "Unsupported platform"
       end
     end
 
@@ -16,6 +18,10 @@ module Minizip
         if USING_OSX
           puts "ZIPPING #{directory} to #{zip_name}.zip"
           system "zip -r #{zip_name} #{directory}"
+        elsif USING_WINDOWS
+          system "7za a #{zip_name} #{directory}"
+        else
+          raise "Unsupported platform"
         end
       else
         puts "#{directory} doesn't exist in #{Dir.pwd}"
@@ -32,6 +38,14 @@ module Minizip
           else
             system "unzip #{zip_name}"
           end
+        elsif USING_WINDOWS
+          if directory
+            system "7za e #{zip_name} -o#{directory}"
+          else
+            system "7za x #{zip_name}"
+          end
+        else
+          raise "Unsupported platform"
         end
       else
         puts "#{zip_name} doesn't exist in #{Dir.pwd}"
