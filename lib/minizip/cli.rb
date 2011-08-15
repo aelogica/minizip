@@ -5,8 +5,8 @@ module Minizip
   class CLI < Thor
 
     desc "files", "files zip_name (add .zip if using windows) files_to_zip"
-    def files(zip_name, dir_name)
-      Minizip::Zip.zip_files(zip_name, dir_name)
+    def files(zip_name, *files_to_zip)
+      Minizip::Zip.zip_files(zip_name, files_to_zip.join(" "))
     end
 
     desc "dir", "dir zip_name (autoiaticilly appends .zip) directory_to_zip"
