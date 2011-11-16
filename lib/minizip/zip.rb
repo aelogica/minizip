@@ -1,6 +1,8 @@
+require 'rbconfig'
+
 module Minizip
-  USING_WINDOWS = !!((RUBY_PLATFORM =~ /(win|w)(32|64)$/) || (RUBY_PLATFORM =~ /mswin|mingw/))
-  USING_OSX = RUBY_PLATFORM =~ /darwin/
+  USING_WINDOWS = (::RbConfig::CONFIG['host_os'] =~/mswin|mingw/)
+  USING_OSX = (::RbConfig::CONFIG['host_os'] =~ /darwin/)
 
   class Zip
     def self.zip_files(zip_name, *files)
