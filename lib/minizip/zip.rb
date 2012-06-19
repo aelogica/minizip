@@ -24,7 +24,14 @@ module Minizip
       end
     end
 
-    def self.extract(zip_name, directory=nil)
+    def self.extract(zip_name, options)
+      if options && options.is_a?(String)
+        warn "[DEPRECATED] Passing in 'directory' as the second argument is deprecated. Please pass it in as part of a hash instead, like this: extract(#{zip_name}, :directory => #{options})"
+        options = {'directory' => options}
+      end
+      directory = options['directory']
+      overwrite = options['overwrite'] ? '-o' : nil
+
       if File.exists?(zip_name)
         Dir.mkdir(directory) if directory && !File.exists?(directory)
 
@@ -36,9 +43,9 @@ module Minizip
           end
         else
           if directory
-            system "unzip #{zip_name} -d #{directory}"
+            system "unzip #{overwrite} #{zip_name} -d #{directory}"
           else
-            system "unzip #{zip_name}"
+            system "unzip #{overwrite} #{zip_name}"
           end
         end
       else

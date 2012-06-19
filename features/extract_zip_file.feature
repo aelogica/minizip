@@ -14,3 +14,9 @@ Feature: User unzips a zipped file
     When I run `minizip extract non_existent.zip extracted_zip_directory`
     Then the output should contain "non_existent.zip doesn't exist"
     And the exit status should be 0
+
+  Scenario: Force to overwrite a file if -f option exists
+    Given a directory named "extracted_zip_directory"
+    And an empty file named "extracted_zip_directory/zoho_sikuli_demo_mac.sikuli/zoho_sikuli_demo_mac.py"
+    And I run `minizip extract ../../features/support/examples/zip_file.zip extracted_zip_directory -o`
+    Then the exit status should be 0

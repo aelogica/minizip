@@ -14,10 +14,11 @@ module Minizip
       Minizip::Zip.zip_dir(zip_name, dir_name)
     end
 
+    method_option :overwrite, :type => :boolean, :aliases => "-o", :desc => "This overwrites all the files if the destination file exists already. Basically the -o option for the UNIX unzip"
     desc "extract", "extract zip_file_name directory_to_extract"
     def extract(zip_name, dir_name=nil)
-      Minizip::Zip.extract(zip_name, dir_name)
+      new_options = {'directory' => dir_name}.merge(options)
+      Minizip::Zip.extract(zip_name, new_options)
     end
-
   end
 end
