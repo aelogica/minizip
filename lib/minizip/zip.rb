@@ -30,18 +30,19 @@ module Minizip
         options = {'directory' => options}
       end
       directory = options['directory']
-      overwrite = options['overwrite'] ? '-o' : nil
 
       if File.exists?(zip_name)
         Dir.mkdir(directory) if directory && !File.exists?(directory)
 
         if USING_WINDOWS
+          overwrite = options['overwrite'] ? '-y' : nil
           if directory
-            system "7za x #{zip_name} -o#{directory}"
+            system "7za x #{zip_name} -o#{directory} #{overwrite}"
           else
-            system "7za x #{zip_name}"
+            system "7za x #{zip_name} #{overwrite}"
           end
         else
+          overwrite = options['overwrite'] ? '-o' : nil
           if directory
             system "unzip #{overwrite} #{zip_name} -d #{directory}"
           else
