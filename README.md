@@ -40,6 +40,11 @@ If you want to unzip in a directory:
 
     $ minizip extract zip_name directory_you_want_to_unzip_to
 
+To force an overwrite of all the files, use the `--overwrite` or `-o` option:
+
+    $ minizip extract zip_name directory_you_want_to_unzip_to --overwrite
+    $ minizip extract zip_name directory_you_want_to_unzip_to -o
+
 ## CONTRIBUTING
 
 All push requests are welcome provided they are properly tested(at least for Unix). We are still trying to fix the tests for Windows(some help here would be great also). We use Aruba for testing.
