@@ -1,4 +1,5 @@
 require 'rbconfig'
+require 'active_support/core_ext'
 
 module Minizip
   USING_WINDOWS = (::RbConfig::CONFIG['host_os'] =~/mswin|mingw/)
@@ -26,10 +27,11 @@ module Minizip
 
     def self.extract(zip_name, options)
       if options && options.is_a?(String)
-        warn "[DEPRECATED] Passing in 'directory' as the second argument is deprecated. Please pass it in as part of a hash instead, like this: extract(#{zip_name}, :directory => #{options})"
-        options = {'directory' => options}
+        warn "[DEPRECATED] Passing in 'directory' as the second argument is deprecated. Please pass it in as part of a hash instead, like this: extract(#{zip_name}, :directory => #{options}) #{caller.first}"
+        options = {:directory => options}
       end
-      directory = options['directory']
+      options = options.with_indifferent_access
+      directory = options[:directory]
 
       if File.exists?(zip_name)
         Dir.mkdir(directory) if directory && !File.exists?(directory)
