@@ -46,9 +46,9 @@ module Minizip
         else
           overwrite = options['overwrite'] ? '-o' : nil
           if directory
-            system "unzip #{overwrite} #{zip_name} -d #{directory}"
+            system "unzip #{overwrite} '#{zip_name}' -d #{directory}"
           else
-            system "unzip #{overwrite} #{zip_name}"
+            system "unzip #{overwrite} '#{zip_name}'"
           end
         end
       else
