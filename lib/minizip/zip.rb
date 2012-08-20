@@ -27,7 +27,7 @@ module Minizip
 
     def self.extract(zip_name, options)
       if options && options.is_a?(String)
-        warn "[DEPRECATED] Passing in 'directory' as the second argument is deprecated. Please pass it in as part of a hash instead, like this: extract(#{zip_name}, :directory => #{options}) #{caller.first}"
+        puts "[DEPRECATED] Passing in 'directory' as the second argument is deprecated. Please pass it in as part of a hash instead, like this: extract(#{zip_name}, :directory => #{options}) #{caller.first}"
         options = {:directory => options}
       end
       options = options.with_indifferent_access
